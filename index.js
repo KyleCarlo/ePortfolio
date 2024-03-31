@@ -9,7 +9,6 @@ navButtons.forEach(function(button) {
         let currButton = document.getElementsByClassName("text-selected")[0];
         currButton.classList.remove("text-selected");
         button.classList.add("text-selected");
-        console.log(currButton);
         // HANDLE STATE CHANGE
         let prevState = state;
         switch(button.id) {
@@ -26,7 +25,7 @@ navButtons.forEach(function(button) {
                 state = 3;
                 break;
         }
-        // image.classList.toggle("move-left");
-        document.getElementById('')
+        document.getElementsByClassName('nameholder-container')[0].classList.toggle('compress-nameholder');
+        document.getElementsByClassName('bioholder')[0].classList.toggle('expand-bioholder');
     });
 });
