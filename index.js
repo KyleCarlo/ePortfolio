@@ -1,6 +1,8 @@
 var navButtons = document.querySelectorAll("nav ul li");
 var image = document.getElementById("me-pic");
 var state = 0;
+var nameholder = document.querySelector('.nameholder-container');
+var bioholder = document.querySelector('.bioholder');
 
 // HANDLE SECTION CHANGE
 navButtons.forEach(function(button) {
@@ -25,7 +27,24 @@ navButtons.forEach(function(button) {
                 state = 3;
                 break;
         }
-        document.getElementsByClassName('nameholder-container')[0].classList.toggle('compress-nameholder');
-        document.getElementsByClassName('bioholder')[0].classList.toggle('expand-bioholder');
+        // HOME TO ABOUT
+        if (prevState == 0 && state == 1) {
+            nameholder.classList.add('compress-nameholder');
+            bioholder.classList.add('expand-bioholder');
+            // setTimeout(() => {
+                nameholder.classList.remove('expand-nameholder');
+                bioholder.classList.remove('compress-bioholder');
+            // }, 1000);
+        } 
+        // ABOUT TO HOME
+        else if (prevState == 1 && state == 0) {
+            nameholder.classList.add('expand-nameholder');
+            bioholder.classList.add('compress-bioholder');
+            // setTimeout(() => {
+                nameholder.classList.remove('compress-nameholder');
+                bioholder.classList.remove('expand-bioholder');
+            // }, 1000);
+        }
+        // else if ()
     });
 });

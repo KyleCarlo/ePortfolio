@@ -54,12 +54,13 @@ nav ul li {
     display:flex;
     align-items: center;
     position:relative;
+    margin: 0 50px;
 }
 
 .nameholder-container{
     position: relative;
     overflow: hidden;
-    z-index: -1;
+    /* z-index: -1; */
 }
 
 .nameholder{
@@ -98,6 +99,7 @@ nav ul li {
     /* position: relative;
     transition: left 0.5s;
     left: -100px; */
+    z-index: 1;
     max-width: 100%;
     max-height: 93vh;
     margin: auto;
@@ -169,8 +171,16 @@ nav ul li {
     animation: expand-bioholder 1s forwards;
 }
 
+.compress-bioholder{
+    animation: compress-bioholder 1s forwards;
+}
+
+.expand-nameholder {
+    animation: expand-nameholder 1s forwards;
+}
+
 .compress-nameholder{
-    animation: compress-nameholder 1s ease-in-out forwards;
+    animation: compress-nameholder 1s forwards;
 }
 
 @keyframes expand-bioholder {
@@ -179,6 +189,29 @@ nav ul li {
     }
     100% {
         width: 500px;
+    }
+}
+
+@keyframes compress-bioholder{
+    0% {
+        width: 500px;
+    }
+    100% {
+        width: 0px;
+    }
+}
+
+@keyframes expand-nameholder {
+    0% {
+        width: 0;
+        left: 300px;
+    }
+    50% {
+        width: 400px;
+    }
+    100% {
+        width: 400px;
+        left: 0;
     }
 }
 
