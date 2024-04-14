@@ -10,7 +10,6 @@
 .nameholder-container{
     position: relative;
     overflow: hidden;
-    /* z-index: -1; */
 }
 
 .nameholder{
@@ -19,7 +18,6 @@
     text-align: center;
     overflow: hidden;
     min-width: 400px;
-    
 }
 
 .nameholder p{
@@ -46,9 +44,6 @@
 }
 
 .me-pic{
-    /* position: relative;
-    transition: left 0.5s;
-    left: -100px; */
     z-index: 1;
     max-width: 100%;
     max-height: 93vh;
@@ -58,12 +53,10 @@
 /* ABOUT SECTION */
 
 .bioholder-container{
-    position: relative;
     width: 0;
     overflow: hidden;
-    /* right: 300px; */
-    /* transform-origin: 0% 50%;
-    transform: translateX(-300px); */
+    position: relative;
+    right: 280px;
 }
 
 .bioholder{
@@ -95,77 +88,28 @@
 }
 
 /* ANIMATION */
-.expand-bioholder {
+.compress-nameholder{
+    animation: compress-nameholder 1s forwards;
+}
+
+.expand-bioholder{
     animation: expand-bioholder 1s forwards 0.5s;
 }
 
-.right-to-left {
-    animation: right-to-left-text 1s forwards;
+.expand-biotext{
+    animation: expand-biotext 1s forwards 0.5s;
+}
+
+.expand-nameholder{
+    animation: expand-nameholder 1s forwards 0.5s;
 }
 
 .compress-bioholder{
     animation: compress-bioholder 1s forwards;
 }
 
-.left-to-right {
-    animation: left-to-right-text 1s forwards;
-}
-
-.expand-nameholder {
-    animation: expand-nameholder 1s forwards 0.5s;
-}
-
-.compress-nameholder{
-    animation: compress-nameholder 1s forwards;
-}
-
-@keyframes expand-bioholder {
-    0% {
-        width: 0;
-        right: 300px;
-    }
-    100% {
-        width: 400px;
-        right: 0;
-    }
-}
-@keyframes right-to-left-text {
-    0% {
-        right: 400px;
-    }
-    100% {
-        right: 0px;
-    }
-}
-
-@keyframes compress-bioholder{
-    0% {
-        width: 400px;
-        right: 0px;
-    }
-    100% {
-        width: 0;
-        right: 300px;
-    }
-}
-@keyframes left-to-right-text {
-    0% {
-        right: 0;
-    }
-    100% {
-        right: 400px;
-    }
-}
-
-@keyframes expand-nameholder {
-    0% {
-        width: 0;
-        left: 300px;
-    }
-    100% {
-        width: 400px;
-        left: 0;
-    }
+.compress-biotext {
+    animation: compress-biotext 1s forwards;
 }
 
 @keyframes compress-nameholder {
@@ -179,5 +123,71 @@
     100% {
         width: 0;
         left: 300px;
+    }
+}
+
+@keyframes expand-bioholder{
+    0% {
+        width: 0;
+        right: 300px;
+    }
+    70% {
+        width: 400px;
+    }
+    100% {
+        width: 400px;
+        right: 0;
+    }
+}
+
+@keyframes expand-biotext {
+    0% {
+        right: 400px;
+    }
+    70% {
+        right: 0;
+    }
+    100% {
+        right: 0;
+    }
+}
+
+@keyframes expand-nameholder {
+    0% {
+        width: 0;
+        left: 300px;
+    }
+    70% {
+        width: 400px;
+    }
+    100% {
+        width: 400px;
+        left: 0;
+    }
+}
+
+@keyframes compress-bioholder {
+    0% {
+        width: 400px;
+        right: 0px;
+    }
+    30% {
+        width: 400px;
+    }
+    100% {
+        width: 0;
+        right: 300px;
+    }
+}
+
+@keyframes compress-biotext {
+    0% {
+        right: 0;
+    }
+    30% {
+        right: 0;
+    }
+    100% {
+        right: 400px;
     }
 }

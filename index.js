@@ -38,26 +38,25 @@ navButtons.forEach(function(button) {
         if (prevState == 0 && state == 1) {
             nameholder.classList.add('compress-nameholder');
             bioholder.classList.add('expand-bioholder');
-            biotext.classList.add('right-to-left');
+            biotext.classList.add('expand-biotext');
+
             nameholder.classList.remove('expand-nameholder');
             bioholder.classList.remove('compress-bioholder');
-            biotext.classList.remove('left-to-right');
-            
+            biotext.classList.remove('compress-biotext');
+            nameholder.style.width = '0';
         } 
         // ABOUT TO HOME
         else if (prevState == 1 && state == 0) {
             nameholder.classList.add('expand-nameholder');
             bioholder.classList.add('compress-bioholder');
-            biotext.classList.add('left-to-right');
+            biotext.classList.add('compress-biotext');
+            
             nameholder.classList.remove('compress-nameholder');
             bioholder.classList.remove('expand-bioholder');
-            biotext.classList.remove('right-to-left'); 
-            // nameholder.style.width = '400px';
-            nameholder.style.width = '0';
+            biotext.classList.remove('expand-biotext');
         }
         else if ((prevState == 0 || prevState == 1) && (state == 2)) {
-            let movementRange = homeSection.getBoundingClientRect().height;
-            projectSection.style.bottom = movementRange + "px";
+            
         }
     });
 });

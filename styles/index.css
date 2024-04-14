@@ -58,6 +58,7 @@ nav ul li {
     transition: 0.2s;
     text-decoration: underline;
     font-weight: 700;
+    font-size: 15px;
 }
 
 .hoverable-icon:hover svg path {
