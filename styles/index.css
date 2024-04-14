@@ -75,20 +75,4 @@ nav ul li {
     text-shadow: var(--orange-highlight) 1px 1px 10px;
 }
 
-/* ANIMATION */
-.expand-bioholder {
-    animation: expand-bioholder 1s forwards;
-}
-
-.compress-bioholder{
-    animation: compress-bioholder 1s forwards;
-}
-
-.expand-nameholder {
-    animation: expand-nameholder 1s forwards;
-}
-
-.compress-nameholder{
-    animation: compress-nameholder 1s forwards;
-}
 
