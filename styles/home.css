@@ -1,53 +1,3 @@
-:root{
-    --background-color: #0F0F0F;
-    --primary-color: white;
-    --secondary-color: #7F8080;
-    --tertiary-color: #242525;
-    --blue-highlight: #31C4BE;
-    --orange-highlight: #f2b236;
-    --def-font: 'Montserrat', sans-serif;
-}
-
-/* GENERAL STYLES */
-
-* {
-    margin: 0;
-    padding: 0;
-    color: var(--primary-color);
-}
-
-body {
-    background-color: var(--background-color);
-    font-family: var(--def-font);   
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-ul {
-    list-style-type: none;
-}
-
-a {
-    text-decoration: none;
-}
-
-/* NAVBAR */
-nav {
-    width: 50%;
-    padding: 10px 0;
-}
-
-nav ul {
-    display: flex;
-    justify-content: space-around;
-}
-
-nav ul li {
-    font-weight: 200;
-    cursor: pointer;
-}
-
 /* HOME SECTION */
 
 #home {
@@ -138,49 +88,6 @@ nav ul li {
     list-style: circle;
     list-style-position: inside;
     line-height: 1.5;
-}
-
-/* HOVER DESIGN */
-.hoverable-text{
-    transition: 0.2s;
-}
-
-.hoverable-text:hover{
-    transition: 0.2s;
-    text-decoration: underline;
-    font-weight: 700;
-}
-
-.hoverable-icon:hover svg path {
-    transition: 0.2s ;
-    fill: var(--blue-highlight);
-}
-
-.hoverable-icon svg path{
-    transition: 0.2s;
-}
-
-/* TEXT SELECTED DESIGN */
-.text-selected {
-    font-weight: 700;
-    text-shadow: var(--orange-highlight) 1px 1px 10px;
-}
-
-/* ANIMATION */
-.expand-bioholder {
-    animation: expand-bioholder 1s forwards;
-}
-
-.compress-bioholder{
-    animation: compress-bioholder 1s forwards;
-}
-
-.expand-nameholder {
-    animation: expand-nameholder 1s forwards;
-}
-
-.compress-nameholder{
-    animation: compress-nameholder 1s forwards;
 }
 
 @keyframes expand-bioholder {

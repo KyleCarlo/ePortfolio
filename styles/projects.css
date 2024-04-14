@@ -1,0 +1,6 @@
+/* PROJECT SECTION */
+#projects {
+    position: relative;
+    bottom: 0;
+    transition: 0.5s bottom ease-out; 
+}
