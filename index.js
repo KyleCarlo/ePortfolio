@@ -55,8 +55,11 @@ navButtons.forEach(function(button) {
             bioholder.classList.remove('expand-bioholder');
             biotext.classList.remove('expand-biotext');
         }
-        else if ((prevState == 0 || prevState == 1) && (state == 2)) {
-            
-        }
+        // else if ((prevState == 0 || prevState == 1) && (state == 2)) {
+        //     let moveHeight = homeSection.getBoundingClientRect().height;
+        //     projectSection.style.bottom = moveHeight + 'px';
+        //     projectSection.style.height = moveHeight + 'px';
+        //     projectSection.style.zIndex = '2';
+        // }
     });
 });

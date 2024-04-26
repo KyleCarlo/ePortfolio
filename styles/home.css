@@ -7,6 +7,10 @@
     margin: 0 50px;
 }
 
+.name{
+    color: var(--orange-highlight);
+}
+
 .nameholder-container{
     position: relative;
     overflow: hidden;

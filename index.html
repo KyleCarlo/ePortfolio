@@ -6,21 +6,22 @@
     <title>Kyle Carlo Lasala</title>
     <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/projects.css">
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 </head>
 <body>
     <nav>
         <ul>
-            <li class="hoverable-text text-selected" id="home-button">Home</li>
-            <li class="hoverable-text" id="about-button">About</li>
-            <li class="hoverable-text" id="projects-button">Projects</li>
-            <li class="hoverable-text" id="career-button">Career</li>
+            <li class="hoverable-text text-selected" id="home-button"><a href="#home">Home</a></li>
+            <li class="hoverable-text" id="about-button"><a href="#home">About</a></li>
+            <li class="hoverable-text" id="projects-button"><a href="#projects">Projects</a></li>
+            <li class="hoverable-text" id="career-button"><a href="#career">Career</a></li>
         </ul>
     </nav>
     <section id="home">
         <div class="nameholder-container">
             <div class="nameholder">
-                <h1>KYLE CARLO C. LASALA</h1>
+                <h1 class="name">KYLE CARLO C. LASALA</h1>
                 <p>Computer Science Student | Aspiring Researcher</p>
                 <div class="socmed">
                     <!-- GITHUB ICON -->
@@ -69,13 +70,47 @@
         </div>
     </section>
 
-    <!-- <section id="projects">
-        <div>test</div>
+    <section id="projects">
+        <div class="school-projects">
+            <div class="card-container">
+                <div class="card">
+                    <div class="img-container">
+                        <img src="assets/projects/Deterministic-Pushdown-Automata.png" alt="DPDA">
+                    </div>
+                    <div class="info-container">
+                        <h1>Deterministic Pushdown Automata</h1>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum id nesciunt ad animi harum, voluptatem incidunt odio facilis debitis quibusdam autem cumque nisi nihil quis sapiente ab reiciendis nam! Veniam.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <div class="img-container">
+                        <img src="assets/projects/Dec64FP-Converter.png" alt="Dec64FP-Converter">
+                    </div>
+                    <div class="info-container">
+                        <h1>IEEE-754 Decimal64 FP Converter</h1>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum id nesciunt ad animi harum, voluptatem incidunt odio facilis debitis quibusdam autem cumque nisi nihil quis sapiente ab reiciendis nam! Veniam.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <div class="img-container">
+                        <img src="assets/projects/Deterministic-Pushdown-Automata.png" alt="DPDA">
+                    </div>
+                    <div class="info-container">
+                        <h1>Deterministic Pushdown Automata</h1>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum id nesciunt ad animi harum, voluptatem incidunt odio facilis debitis quibusdam autem cumque nisi nihil quis sapiente ab reiciendis nam! Veniam.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="career">
 
-    </section> -->
+    </section>
 </body>
 </html>
 <script src="index.js"></script>
