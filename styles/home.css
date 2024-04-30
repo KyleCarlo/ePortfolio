@@ -41,12 +41,6 @@
     padding: 25px 0;
 }
 
-.icon{
-    height: 50px;
-    width: 50px;
-    vertical-align: middle;
-}
-
 .me-pic{
     z-index: 1;
     max-width: 100%;

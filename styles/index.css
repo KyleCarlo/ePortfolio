@@ -81,6 +81,12 @@ nav ul li {
     transition: 0.2s;
 }
 
+.icon{
+    height: 50px;
+    width: 50px;
+    vertical-align: middle;
+}
+
 /* TEXT SELECTED DESIGN */
 .text-selected {
     font-weight: 700;

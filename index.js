@@ -10,7 +10,8 @@ var homeSection = document.getElementById("home");
 
 // PROJECT SECTION
 var projectSection = document.getElementById("projects");
-
+var projectCards = document.querySelectorAll(".card-container");
+console.log(projectCards);
 // HANDLE SECTION CHANGE
 navButtons.forEach(function(button) {
     button.addEventListener("click", function() {
@@ -26,12 +27,6 @@ navButtons.forEach(function(button) {
                 break;
             case "about-button":
                 state = 1;
-                break;
-            case "projects-button":
-                state = 2;
-                break;
-            case "career-button":
-                state = 3;
                 break;
         }
         // HOME TO ABOUT
@@ -55,11 +50,13 @@ navButtons.forEach(function(button) {
             bioholder.classList.remove('expand-bioholder');
             biotext.classList.remove('expand-biotext');
         }
-        // else if ((prevState == 0 || prevState == 1) && (state == 2)) {
-        //     let moveHeight = homeSection.getBoundingClientRect().height;
-        //     projectSection.style.bottom = moveHeight + 'px';
-        //     projectSection.style.height = moveHeight + 'px';
-        //     projectSection.style.zIndex = '2';
-        // }
+    });
+});
+
+// HANDLE CARD FLIP
+projectCards.forEach(function(card) {
+    card.addEventListener("click", function() {
+        card.children[0].classList.toggle('card-flip');
+        card.children[1].classList.toggle('card-flipback');
     });
 });
