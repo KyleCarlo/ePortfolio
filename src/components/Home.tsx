@@ -63,13 +63,8 @@ export default function Home({
 
   const imgX = useTransform(scrollY, [0, 1], [0, imageWidth]);
   const bioX = useTransform(scrollY, [0, 0.75], [0, -bioWidth]);
-  const bio2X = useTransform(scrollY, [0, 1], [0, -bio2Width]);
+  const bio2X = useTransform(scrollY, [0, 1], ["150%", "0%"]);
 
-  useMotionValueEvent(scrollY, "change", (value) => {
-    console.log(scrollY);
-    console.log(value);
-    // console.log(isBioVisible);
-  });
   return (
     <section className="h-[1800px]" id="home" ref={homeRef}>
       <div className="flex sticky" style={{ top: headerHeight }}>
@@ -83,7 +78,7 @@ export default function Home({
           />
         </div>
         <div className="relative w-1/2 flex flex-col justify-center items-start">
-          {/* BIO */}
+          {/* BIO1 */}
           <div className={isBioVisible ? "" : "overflow-hidden"}>
             <motion.div
               className="text-center h-full flex flex-col justify-center min-w-min text-nowrap"
@@ -106,29 +101,37 @@ export default function Home({
           {/* BIO2 */}
           <motion.div
             ref={bio2Ref}
-            className="absolute w-[35dvw] overflow-hidden space-y-4"
+            className="absolute overflow-hidden w-full"
             style={{
-              x: bio2X,
+              x: imgX,
+              translateX: -bio2Width - 230,
             }}
           >
-            <h1 className="text-2xl font-bold">Let me introduce myself.</h1>
-            <p className="text-justify">
-              I am currently a BSMS Computer Science student (straight to
-              Masters program) at De La Salle University-Manila and a research
-              assistant at Andrew L. Tan Data Science Institute (ALTDSI) and
-              Center for Automation Research (CAR).
-            </p>
-            <p className="text-justify">
-              I am currently doing my research in the field of quantum computing
-              but I am also interested in the following domains:
-            </p>
-            <ul className="list-disc list-inside">
-              <li>Computational Physics</li>
-              <li>High Performance Computing</li>
-              <li>Computational Biology and Medicine</li>
-              <li>Computer Science and Education</li>
-              <li>Human-Computer Interaction</li>
-            </ul>
+            <motion.div
+              className="w-[35dvw] space-y-4"
+              style={{
+                x: bio2X,
+              }}
+            >
+              <h1 className="text-2xl font-bold">Let me introduce myself.</h1>
+              <p className="text-justify">
+                I am currently a BSMS Computer Science student (straight to
+                Masters program) at De La Salle University-Manila and a research
+                assistant at Andrew L. Tan Data Science Institute (ALTDSI) and
+                Center for Automation Research (CAR).
+              </p>
+              <p className="text-justify">
+                I am currently doing my research in the field of quantum
+                computing but I am also interested in the following domains:
+              </p>
+              <ul className="list-disc list-inside">
+                <li>Computational Physics</li>
+                <li>High Performance Computing</li>
+                <li>Computational Biology and Medicine</li>
+                <li>Computer Science and Education</li>
+                <li>Human-Computer Interaction</li>
+              </ul>
+            </motion.div>
           </motion.div>
         </div>
       </div>
