@@ -10,14 +10,12 @@ import {
   useSpring,
   useMotionValueEvent,
 } from "motion/react";
-import { useEffect, useRef, useState, RefObject } from "react";
+import { useEffect, useRef, useState, RefObject, forwardRef } from "react";
 
-export default function Home({
-  headerRef,
-}: {
-  headerRef: RefObject<HTMLDivElement>;
-}) {
-  const homeRef = useRef<HTMLDivElement>(null);
+const Home = forwardRef<
+  HTMLDivElement,
+  { headerRef: RefObject<HTMLDivElement> }
+>(({ headerRef }, ref) => {
   const imgRef = useRef<HTMLImageElement>(null);
   const bioRef = useRef<HTMLDivElement>(null);
   const bio2Ref = useRef<HTMLDivElement>(null);
@@ -30,7 +28,7 @@ export default function Home({
   const [isBioVisible, setBioVisible] = useState(true);
 
   const { scrollYProgress } = useScroll({
-    target: homeRef,
+    target: ref as RefObject<HTMLElement | null>,
   });
 
   const scrollY = useSpring(scrollYProgress, {
@@ -59,14 +57,14 @@ export default function Home({
     if (bio2Ref.current) {
       setBio2Width(bio2Ref.current.clientWidth);
     }
-  }, []);
+  }, [headerRef, imgRef, bioRef, bio2Ref]);
 
   const imgX = useTransform(scrollY, [0, 1], [0, imageWidth]);
   const bioX = useTransform(scrollY, [0, 0.75], [0, -bioWidth]);
   const bio2X = useTransform(scrollY, [0, 1], ["150%", "0%"]);
 
   return (
-    <section className="h-[1800px]" id="home" ref={homeRef}>
+    <div className="h-[1800px]" ref={ref}>
       <div className="flex sticky" style={{ top: headerHeight }}>
         <div className="w-1/2 flex justify-end">
           <motion.img
@@ -115,14 +113,23 @@ export default function Home({
             >
               <h1 className="text-2xl font-bold">Let me introduce myself.</h1>
               <p className="text-justify">
-                I am currently a BSMS Computer Science student (straight to
-                Masters program) at De La Salle University-Manila and a research
-                assistant at Andrew L. Tan Data Science Institute (ALTDSI) and
-                Center for Automation Research (CAR).
+                I am currently a{" "}
+                <span className="text-[--orange-highlight]">
+                  BSMS Computer Science
+                </span>{" "}
+                student (straight to Masters program) at{" "}
+                <span className="text-[--blue-highlight]">
+                  De La Salle University-Manila
+                </span>{" "}
+                and a research assistant at Andrew L. Tan Data Science Institute
+                (ALTDSI) and Center for Automation Research (CAR).
               </p>
               <p className="text-justify">
-                I am currently doing my research in the field of quantum
-                computing but I am also interested in the following domains:
+                I am currently doing my research in the field of{" "}
+                <span className="text-nowrap font-bold italic text-[--orange-highlight]">
+                  quantum computing
+                </span>{" "}
+                but I am also interested in the following domains:
               </p>
               <ul className="list-disc list-inside">
                 <li>Computational Physics</li>
@@ -135,6 +142,8 @@ export default function Home({
           </motion.div>
         </div>
       </div>
-    </section>
+    </div>
   );
-}
+});
+
+export default Home;

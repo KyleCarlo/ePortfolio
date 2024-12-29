@@ -1,11 +1,14 @@
 import Header from "./components/Header";
 import Home from "./components/Home";
-import { useRef } from "react";
-import { motion, useScroll, useTransform, useSpring } from "motion/react";
+import Projects from "./components/Projects";
+import { useRef, useEffect } from "react";
+import { motion, useScroll, useSpring } from "motion/react";
 
 export default function App() {
   const mainRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
+  const homeRef = useRef<HTMLDivElement>(null);
+
   const { scrollYProgress } = useScroll({
     target: mainRef,
   });
@@ -14,19 +17,47 @@ export default function App() {
     damping: 20,
     mass: 1,
   });
-  const scaleX = useTransform(scrollY, [0, 1], [0, 1]);
 
+  usePreventZoom();
   return (
     <main ref={mainRef}>
       <motion.div
-        style={{ scaleX }}
+        style={{ scaleX: scrollY }}
         className="fixed top-0 left-0 w-full h-1 bg-[--blue-highlight] z-30"
       ></motion.div>
-      <Header ref={headerRef} />
-      <Home headerRef={headerRef} />
-      <section className="h-[1800px]">
-        <p>Projects Section</p>
-      </section>
+      <Header ref={headerRef} homeRef={homeRef} mainRef={mainRef} />
+      <Home ref={homeRef} headerRef={headerRef} />
+      <Projects />
     </main>
   );
+}
+
+function usePreventZoom(scrollCheck = true, keyboardCheck = true) {
+  useEffect(() => {
+    const handleKeydown = (e: globalThis.KeyboardEvent) => {
+      if (
+        keyboardCheck &&
+        e.ctrlKey &&
+        (e.key == "=" || e.key == "+" || e.key == "-")
+      ) {
+        e.preventDefault();
+        console.log(e);
+        console.log(e.ctrlKey);
+      }
+    };
+
+    const handleWheel = (e: globalThis.WheelEvent) => {
+      if (scrollCheck && e.ctrlKey) {
+        e.preventDefault();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeydown);
+    document.addEventListener("wheel", handleWheel, { passive: false });
+
+    return () => {
+      document.removeEventListener("keydown", handleKeydown);
+      document.removeEventListener("wheel", handleWheel);
+    };
+  }, [scrollCheck, keyboardCheck]);
 }
