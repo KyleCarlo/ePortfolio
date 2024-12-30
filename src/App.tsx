@@ -4,6 +4,7 @@ import Projects from "./components/Projects";
 import Spinner from "./components/Spinner";
 import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useSpring } from "motion/react";
+import { scrollToProgress } from "./utils";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -23,6 +24,11 @@ export default function App() {
   });
 
   usePreventZoom();
+  useEffect(() => {
+    if (hideSpinner) {
+      scrollToProgress(0);
+    }
+  }, [hideSpinner]);
 
   return (
     <>
@@ -33,10 +39,12 @@ export default function App() {
       >
         <Spinner loading={loading} />
       </div>
-      <main ref={mainRef}>
+      <main ref={mainRef} className="scrollbar-hide">
         <motion.div
           style={{ scaleX: scrollY }}
-          className="fixed top-0 left-0 w-full h-1 bg-[--blue-highlight] z-30"
+          className={`fixed top-0 left-0 w-full h-1 bg-[--blue-highlight] z-30 ${
+            hideSpinner ? "" : "hidden"
+          }`}
         />
         <Header ref={headerRef} homeRef={homeRef} mainRef={mainRef} />
         <Home

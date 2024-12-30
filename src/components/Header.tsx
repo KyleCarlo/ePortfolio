@@ -1,4 +1,5 @@
 import { forwardRef, RefObject, useState, useEffect } from "react";
+import { scrollToProgress } from "../utils";
 
 const Header = forwardRef<
   HTMLDivElement,
@@ -8,8 +9,6 @@ const Header = forwardRef<
 
   useEffect(() => {
     if (homeRef.current && mainRef.current) {
-      console.log("homeRef.current", homeRef.current);
-      console.log("mainRef.current", mainRef.current);
       const scrollHeight =
         document.documentElement.scrollHeight - window.innerHeight;
       const homeHeight = homeRef.current.clientHeight;
@@ -46,12 +45,5 @@ const Header = forwardRef<
     </div>
   );
 });
-
-const scrollToProgress = (progress: number) => {
-  const scrollHeight =
-    document.documentElement.scrollHeight - window.innerHeight;
-  const scrollY = scrollHeight * progress;
-  window.scrollTo({ top: scrollY, behavior: "smooth" });
-};
 
 export default Header;
