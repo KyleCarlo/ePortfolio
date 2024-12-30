@@ -14,8 +14,11 @@ import { useEffect, useRef, useState, RefObject, forwardRef } from "react";
 
 const Home = forwardRef<
   HTMLDivElement,
-  { headerRef: RefObject<HTMLDivElement> }
->(({ headerRef }, ref) => {
+  {
+    headerRef: RefObject<HTMLDivElement>;
+    setLoading: (loading: boolean) => void;
+  }
+>(({ headerRef, setLoading }, ref) => {
   const imgRef = useRef<HTMLImageElement>(null);
   const bioRef = useRef<HTMLDivElement>(null);
   const bio2Ref = useRef<HTMLDivElement>(null);
@@ -73,6 +76,11 @@ const Home = forwardRef<
             style={{ x: imgX }}
             alt="My Picture"
             className="max-h-[85dvh] z-10"
+            onLoad={() => {
+              setTimeout(() => {
+                setLoading(false);
+              }, 2000);
+            }}
           />
         </div>
         <div className="relative w-1/2 flex flex-col justify-center items-start">

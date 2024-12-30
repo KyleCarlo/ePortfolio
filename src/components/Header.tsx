@@ -8,6 +8,8 @@ const Header = forwardRef<
 
   useEffect(() => {
     if (homeRef.current && mainRef.current) {
+      console.log("homeRef.current", homeRef.current);
+      console.log("mainRef.current", mainRef.current);
       const scrollHeight =
         document.documentElement.scrollHeight - window.innerHeight;
       const homeHeight = homeRef.current.clientHeight;
