@@ -7,6 +7,7 @@ import { motion, useScroll, useSpring } from "motion/react";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
+  const [hideSpinner, setHideSpinner] = useState(false);
   const mainRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const homeRef = useRef<HTMLDivElement>(null);
@@ -26,11 +27,11 @@ export default function App() {
   return (
     <>
       <div
-        className={`absolute top-0 left-0 w-full h-full flex justify-center items-center bg-[--background-color] z-30 ${
-          loading ? "" : "hidden"
+        className={`fixed top-0 left-0 w-full h-full flex justify-center items-center bg-[--background-color] z-30 ${
+          hideSpinner ? "hidden" : ""
         }`}
       >
-        <Spinner loading />
+        <Spinner loading={loading} />
       </div>
       <main ref={mainRef}>
         <motion.div
@@ -38,7 +39,12 @@ export default function App() {
           className="fixed top-0 left-0 w-full h-1 bg-[--blue-highlight] z-30"
         />
         <Header ref={headerRef} homeRef={homeRef} mainRef={mainRef} />
-        <Home ref={homeRef} headerRef={headerRef} setLoading={setLoading} />
+        <Home
+          ref={homeRef}
+          headerRef={headerRef}
+          setLoading={setLoading}
+          setHideSpinner={setHideSpinner}
+        />
         <Projects />
       </main>
     </>

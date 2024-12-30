@@ -10,15 +10,24 @@ import {
   useSpring,
   useMotionValueEvent,
 } from "motion/react";
-import { useEffect, useRef, useState, RefObject, forwardRef } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  RefObject,
+  forwardRef,
+  Dispatch,
+  SetStateAction,
+} from "react";
 
 const Home = forwardRef<
   HTMLDivElement,
   {
     headerRef: RefObject<HTMLDivElement>;
-    setLoading: (loading: boolean) => void;
+    setLoading: Dispatch<SetStateAction<boolean>>;
+    setHideSpinner: Dispatch<SetStateAction<boolean>>;
   }
->(({ headerRef, setLoading }, ref) => {
+>(({ headerRef, setLoading, setHideSpinner }, ref) => {
   const imgRef = useRef<HTMLImageElement>(null);
   const bioRef = useRef<HTMLDivElement>(null);
   const bio2Ref = useRef<HTMLDivElement>(null);
@@ -80,6 +89,9 @@ const Home = forwardRef<
               setTimeout(() => {
                 setLoading(false);
               }, 2000);
+              setTimeout(() => {
+                setHideSpinner(true);
+              }, 3000);
             }}
           />
         </div>
