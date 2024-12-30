@@ -1,7 +1,5 @@
 import StandingImage from "/standing.png";
-import GithubIcon from "/github.svg";
-import LinkedInIcon from "/linkedin.svg";
-import EmailIcon from "/email.svg";
+import { Github, LinkedIn, Email } from "./SVG";
 
 import {
   motion,
@@ -110,9 +108,15 @@ const Home = forwardRef<
               </h1>
               <p>Computer Science Student | Aspiring Researcher</p>
               <div className="flex justify-around p-4">
-                <img src={GithubIcon} alt="GitHub" width={48} height={46} />
-                <img src={LinkedInIcon} alt="LinkedIn" width={46} height={46} />
-                <img src={EmailIcon} alt="Email" width={57} height={46} />
+                <div className="w-[48px] h-[46px]">
+                  <Github color="white" />
+                </div>
+                <div className="w-[46px] h-[46px]">
+                  <LinkedIn color="white" />
+                </div>
+                <div className="w-[57px] h-[46px]">
+                  <Email color="white" />
+                </div>
               </div>
             </motion.div>
           </div>
@@ -122,11 +126,11 @@ const Home = forwardRef<
             className="absolute overflow-hidden w-full"
             style={{
               x: imgX,
-              translateX: -bio2Width - 230,
+              translateX: -bio2Width - imageWidth / 2,
             }}
           >
             <motion.div
-              className="w-[35dvw] space-y-4"
+              className="w-[35dvw] max-w-[800px] space-y-4"
               style={{
                 x: bio2X,
               }}
