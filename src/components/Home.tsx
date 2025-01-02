@@ -1,4 +1,4 @@
-import StandingImage from "/standing.png";
+import StandingImage from "/standing.webp";
 import { Github, LinkedIn, Email } from "./SVG";
 
 import {
