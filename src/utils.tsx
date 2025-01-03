@@ -18,7 +18,7 @@ export const projectDetails = [
       "https://github.com/mmonm17",
       "https://github.com/daphnejanelyn",
     ],
-    ghlink: "",
-    prevlink: "",
+    ghlink: "https://github.com/KyleCarlo/Deterministic-Pushdown-Automata",
+    prevlink: "https://kylecarlo.github.io/Deterministic-Pushdown-Automata/",
   },
 ];
