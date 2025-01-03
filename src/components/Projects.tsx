@@ -12,6 +12,10 @@ export default function Projects() {
           toolStack={project.toolStack}
           description={project.description}
           image={project.image}
+          collaborators={project.collaborators}
+          contacts={project.contacts}
+          ghlink={project.ghlink}
+          prevlink={project.prevlink}
         />
       ))}
     </div>
