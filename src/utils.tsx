@@ -13,5 +13,12 @@ export const projectDetails = [
     description:
       "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id ad nulla nam ab vitae.",
     image: "/DPDA.png",
+    collaborators: ["Maria Monica Manlises", "Daphne Janelyn Go"],
+    contacts: [
+      "https://github.com/mmonm17",
+      "https://github.com/daphnejanelyn",
+    ],
+    ghlink: "",
+    prevlink: "",
   },
 ];
