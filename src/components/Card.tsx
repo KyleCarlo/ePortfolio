@@ -10,7 +10,7 @@ import { useState } from "react";
 
 export default function Card({
   title,
-  topic,
+  topics,
   toolStack,
   description,
   image,
@@ -20,7 +20,7 @@ export default function Card({
   prevlink,
 }: {
   title: string;
-  topic: string;
+  topics: string[];
   toolStack: string[];
   description: string;
   image: string;
@@ -82,7 +82,9 @@ export default function Card({
           <div className="px-8 py-3 space-y-1">
             <h1 className="font-bold text-xl leading-tight">{title}</h1>
             <div className="flex space-x-1">
-              <Badge text={topic} color="orange" />
+              {topics.map((topic, index) => (
+                <Badge key={index} text={topic} color="orange" />
+              ))}
               {toolStack.map((tool, index) => (
                 <Badge key={index} text={tool} color="blue" />
               ))}
@@ -150,14 +152,18 @@ export default function Card({
                   <div className="w-5">
                     <Person color="white" />
                   </div>
-                  <a
-                    className="hover:underline underline-offset-2"
-                    target="_blank"
-                    href={contacts[index]}
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    {collaborator}
-                  </a>
+                  {contacts[index] != "" ? (
+                    <a
+                      className="hover:underline underline-offset-2"
+                      target="_blank"
+                      href={contacts[index]}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      {collaborator}
+                    </a>
+                  ) : (
+                    <p>{collaborator}</p>
+                  )}
                 </li>
               ))}
             </ul>
