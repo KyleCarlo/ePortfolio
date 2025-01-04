@@ -26,14 +26,13 @@ export default function Card({
   image: string;
   collaborators: string[];
   contacts: string[];
-  ghlink: string;
-  prevlink: string;
+  ghlink: string | undefined;
+  prevlink: string | undefined;
 }) {
   const [front, setFront] = useState(true);
   const rotateY = useMotionValue(0);
 
   useMotionValueEvent(rotateY, "change", (latest) => {
-    console.log(latest, front);
     if (latest >= 90) {
       setFront(false);
     } else {
@@ -82,7 +81,7 @@ export default function Card({
           {/* DETAILS */}
           <div className="px-8 py-3 space-y-1">
             <h1 className="font-bold text-xl leading-tight">{title}</h1>
-            <div className="flex space-x-2">
+            <div className="flex space-x-1">
               <Badge text={topic} color="orange" />
               {toolStack.map((tool, index) => (
                 <Badge key={index} text={tool} color="blue" />
@@ -116,26 +115,30 @@ export default function Card({
         />
         <div className="w-[99%] h-[99%] transform rotate-y-180 rounded-xl bg-gradient-to-bl from-neutral-950 from-5% via-neutral-900 to-neutral-950 to-95% via-50% flex flex-col justify-evenly items-center">
           <div className="flex items-center justify-center space-x-12">
-            <div className="w-1/5 flex flex-col justify-center items-center space-y-2">
-              <a
-                href={ghlink}
-                onClick={(e) => e.stopPropagation()}
-                target="_blank"
-              >
-                <Github color="white" />
-              </a>
-              <p>Repo</p>
-            </div>
-            <div className="w-1/5 flex flex-col justify-center items-center space-y-2">
-              <a
-                href={prevlink}
-                onClick={(e) => e.stopPropagation()}
-                target="_blank"
-              >
-                <Link color="white" />
-              </a>
-              <p>Preview</p>
-            </div>
+            {ghlink && (
+              <div className="w-1/5 flex flex-col justify-center items-center space-y-2">
+                <a
+                  href={ghlink}
+                  onClick={(e) => e.stopPropagation()}
+                  target="_blank"
+                >
+                  <Github color="white" />
+                </a>
+                <p>Repo</p>
+              </div>
+            )}
+            {prevlink && (
+              <div className="w-1/5 flex flex-col justify-center items-center space-y-2">
+                <a
+                  href={prevlink}
+                  onClick={(e) => e.stopPropagation()}
+                  target="_blank"
+                >
+                  <Link color="white" />
+                </a>
+                <p>Preview</p>
+              </div>
+            )}
           </div>
           <div className="flex flex-col justify-center items-center space-y-2">
             <h1 className="text-2xl font-bold text-[--blue-highlight]">
@@ -149,7 +152,9 @@ export default function Card({
                   </div>
                   <a
                     className="hover:underline underline-offset-2"
+                    target="_blank"
                     href={contacts[index]}
+                    onClick={(e) => e.stopPropagation()}
                   >
                     {collaborator}
                   </a>

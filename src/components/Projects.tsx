@@ -3,7 +3,7 @@ import { projectDetails } from "../utils";
 
 export default function Projects() {
   return (
-    <div className="h-[1800px] flex justify-center pt-20" id="projects">
+    <div className="h-[1800px] flex justify-evenly pt-20" id="projects">
       {projectDetails.map((project, index) => (
         <Card
           key={index}
