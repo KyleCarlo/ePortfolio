@@ -89,4 +89,20 @@ export const projectDetails = [
     contacts: ["https://github.com/mmonm17"],
     ghlink: "https://github.com/KyleCarlo/C_vs_x86-64",
   },
+  {
+    title: "AnimoEats",
+    topics: ["Web"],
+    toolStack: ["ExpressJS", "MongoDB"],
+    description:
+      "Most of the time, students don't know where to eat. AnimoEats is a web application that helps students decide where to eat.",
+    image: "/AnimoEats.png",
+    collaborators: ["Sebastian Diaz", "Daphne Go", "Monica Manlises"],
+    contacts: [
+      "https://github.com/bastidiaz",
+      "https://github.com/daphnejanelyn",
+      "https://github.com/mmonm17",
+    ],
+    ghlink: "https://github.com/KyleCarlo/AnimoEats",
+    prevlink: "https://animoeats.onrender.com/",
+  },
 ];
