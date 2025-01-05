@@ -105,4 +105,30 @@ export const projectDetails = [
     ghlink: "https://github.com/KyleCarlo/AnimoEats",
     prevlink: "https://animoeats.onrender.com/",
   },
+  {
+    title: "C Trading-Game (GoT Inspired)",
+    topics: ["Logic", "Data Structures"],
+    toolStack: ["C"],
+    description:
+      "This is my first C project. I created this project to become proficient in programming. This is inspired by the Game of Thrones series.",
+    image: "/GoT.png",
+    collaborators: [],
+    contacts: [],
+    description2: "I created this project individually 🫡",
+    ghlink: "https://github.com/KyleCarlo/First-C-based-Mini-Game",
+    prevlink: "",
+  },
+  {
+    title: "Fakedex (Pokedex)",
+    topics: ["Logic", "Data Structuress"],
+    toolStack: ["C"],
+    description:
+      "This is my second C project. I created this project to become proficient in using data structures. This is inspired by the Pokedex in Pokemon series.",
+    image: "",
+    collaborators: [],
+    contacts: [],
+    description2: "",
+    ghlink: "",
+    prevlink: "",
+  },
 ];

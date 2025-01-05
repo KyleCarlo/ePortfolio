@@ -16,6 +16,7 @@ export default function Card({
   image,
   collaborators,
   contacts,
+  description2,
   ghlink,
   prevlink,
 }: {
@@ -26,6 +27,7 @@ export default function Card({
   image: string;
   collaborators: string[];
   contacts: string[];
+  description2: string;
   ghlink: string | undefined;
   prevlink: string | undefined;
 }) {
@@ -143,30 +145,36 @@ export default function Card({
             )}
           </div>
           <div className="flex flex-col justify-center items-center space-y-2">
-            <h1 className="text-2xl font-bold text-[--blue-highlight]">
-              Collaborators
-            </h1>
-            <ul className="space-y-1">
-              {collaborators.map((collaborator, index) => (
-                <li key={index} className="flex space-x-2">
-                  <div className="w-5">
-                    <Person color="white" />
-                  </div>
-                  {contacts[index] != "" ? (
-                    <a
-                      className="hover:underline underline-offset-2"
-                      target="_blank"
-                      href={contacts[index]}
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      {collaborator}
-                    </a>
-                  ) : (
-                    <p>{collaborator}</p>
-                  )}
-                </li>
-              ))}
-            </ul>
+            {collaborators.length > 0 ? (
+              <>
+                <h1 className="text-2xl font-bold text-[--blue-highlight]">
+                  Collaborators
+                </h1>
+                <ul className="space-y-1">
+                  {collaborators.map((collaborator, index) => (
+                    <li key={index} className="flex space-x-2">
+                      <div className="w-5">
+                        <Person color="white" />
+                      </div>
+                      {contacts[index] != "" ? (
+                        <a
+                          className="hover:underline underline-offset-2"
+                          target="_blank"
+                          href={contacts[index]}
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          {collaborator}
+                        </a>
+                      ) : (
+                        <p>{collaborator}</p>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : (
+              <p>{description2}</p>
+            )}
           </div>
           <div className="absolute space-x-1 bottom-0 right-0 hover:cursor-pointer mr-2 mb-2">
             <div className="w-5 transform rotate-x-40">

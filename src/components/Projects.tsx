@@ -15,6 +15,7 @@ export default function Projects() {
             image={project.image}
             collaborators={project.collaborators}
             contacts={project.contacts}
+            description2={project.description2 ?? ""}
             ghlink={project.ghlink}
             prevlink={project.prevlink}
           />
