@@ -124,11 +124,10 @@ export const projectDetails = [
     toolStack: ["C"],
     description:
       "This is my second C project. I created this project to become proficient in using data structures. This is inspired by the Pokedex in Pokemon series.",
-    image: "",
-    collaborators: [],
-    contacts: [],
-    description2: "",
-    ghlink: "",
+    image: "/Fakedex.png",
+    collaborators: ["Adam Mendoza"],
+    contacts: [""],
+    ghlink: "https://github.com/KyleCarlo/Fakedex",
     prevlink: "",
   },
 ];
