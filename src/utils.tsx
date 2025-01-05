@@ -133,7 +133,7 @@ export const projectDetails = [
   {
     title: "Farming Simulator",
     topics: ["OOP", "Multithread"],
-    toolStack: ["Java"],
+    toolStack: ["Java", "Swing"],
     description:
       "This is my first Java project. I created this project to become proficient in Object-Oriented Programming and get started with Multithreading.",
     image: "/Farming-Simulator.png",
