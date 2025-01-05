@@ -130,4 +130,17 @@ export const projectDetails = [
     ghlink: "https://github.com/KyleCarlo/Fakedex",
     prevlink: "",
   },
+  {
+    title: "Farming Simulator",
+    topics: ["OOP", "Multithread"],
+    toolStack: ["Java"],
+    description:
+      "This is my first Java project. I created this project to become proficient in Object-Oriented Programming and get started with Multithreading.",
+    image: "/Farming-Simulator.png",
+    collaborators: [],
+    contacts: [],
+    description2: "I created this project individually 🫡",
+    ghlink: "https://github.com/KyleCarlo/Farming-Simulator",
+    prevlink: "",
+  },
 ];
