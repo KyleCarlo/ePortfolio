@@ -55,11 +55,6 @@ const Home = forwardRef<
   });
 
   useEffect(() => {
-    console.log("headerRef", headerRef);
-    console.log("imgRef", imgRef);
-    console.log("bioRef", bioRef);
-    console.log("bio2Ref", bio2Ref);
-
     if (headerRef.current) {
       setHeaderHeight(headerRef.current.clientHeight);
     }
@@ -113,15 +108,27 @@ const Home = forwardRef<
               </h1>
               <p>Computer Science Student | Aspiring Researcher</p>
               <div className="flex justify-around p-4">
-                <div className="w-[48px] h-[46px]">
+                <a
+                  className="w-[48px] h-[46px]"
+                  href="https://github.com/KyleCarlo"
+                  target="_blank"
+                >
                   <Github color="white" />
-                </div>
-                <div className="w-[46px] h-[46px]">
+                </a>
+                <a
+                  className="w-[46px] h-[46px]"
+                  href="https://www.linkedin.com/in/kylecarlo/"
+                  target="_blank"
+                >
                   <LinkedIn color="white" />
-                </div>
-                <div className="w-[57px] h-[46px]">
+                </a>
+                <a
+                  className="w-[57px] h-[46px]"
+                  href="mailto:kyle_lasala@dlsu.edu.ph"
+                  target="_blank"
+                >
                   <Email color="white" />
-                </div>
+                </a>
               </div>
             </motion.div>
           </div>

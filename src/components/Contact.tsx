@@ -11,15 +11,27 @@ export default function Contact() {
           Connect with Me!
         </h1>
         <div className="flex justify-around p-4 space-x-12">
-          <div className="w-[48px] h-[46px]">
+          <a
+            className="w-[48px] h-[46px]"
+            href="https://github.com/KyleCarlo"
+            target="_blank"
+          >
             <Github color="white" />
-          </div>
-          <div className="w-[46px] h-[46px]">
+          </a>
+          <a
+            className="w-[46px] h-[46px]"
+            href="https://www.linkedin.com/in/kylecarlo/"
+            target="_blank"
+          >
             <LinkedIn color="white" />
-          </div>
-          <div className="w-[57px] h-[46px]">
+          </a>
+          <a
+            className="w-[57px] h-[46px]"
+            href="mailto:mailto:kyle_lasala@dlsu.edu.ph"
+            target="_blank"
+          >
             <Email color="white" />
-          </div>
+          </a>
         </div>
         <p className="relative w-[65%] text-justify">
           Got a question, an idea, or just want to chat? Don’t be shy—drop me a
