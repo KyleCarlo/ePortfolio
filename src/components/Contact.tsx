@@ -84,14 +84,14 @@ function Input({
         />
       ) : (
         <div
-          className={`w-3/5 rounded-md bg-[--tertiary-color] border-2 border-[--secondary-color] focus:outline-none shadow-sm shadow-[--blue] ${height} ${
-            active && "border-[--blue]"
+          className={`w-3/5 rounded-md bg-[--tertiary-color] border-2 focus:outline-none shadow-sm shadow-[--blue] ${height} ${
+            active ? "border-[--blue]" : "border-[--secondary-color]"
           }`}
         >
           <textarea
             onFocus={() => setActive(true)}
             onBlur={() => setActive(false)}
-            className="resize-none w-full h-full m-2 bg-transparent outline-none overflow-y-hidden"
+            className="resize-none w-full h-full p-2 bg-transparent outline-none overflow-y-hidden"
           ></textarea>
         </div>
       )}
