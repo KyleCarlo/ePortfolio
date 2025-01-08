@@ -3,7 +3,7 @@ import { projectDetails } from "../utils";
 
 export default function Projects() {
   return (
-    <div className="flex flex-wrap justify-evenly pt-20 gap-y-8" id="projects">
+    <div className="flex flex-wrap justify-evenly py-20 gap-y-8" id="projects">
       {projectDetails.map((project, index) => (
         <div className="flex-[0_0_33.33%] flex justify-center">
           <Card
