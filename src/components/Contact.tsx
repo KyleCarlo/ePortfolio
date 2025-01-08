@@ -2,6 +2,7 @@ import { Qubit } from "./Spinner";
 import { useState } from "react";
 import { Email, Github, LinkedIn } from "./SVG";
 import { motion } from "motion/react";
+import { email } from "../utils";
 
 export default function Contact() {
   return (
@@ -27,7 +28,7 @@ export default function Contact() {
           </a>
           <a
             className="w-[57px] h-[46px]"
-            href="mailto:mailto:kyle_lasala@dlsu.edu.ph"
+            href={`mailto: ${email}`}
             target="_blank"
           >
             <Email color="white" />

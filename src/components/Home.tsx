@@ -1,5 +1,6 @@
 import StandingImage from "/standing.webp";
 import { Github, LinkedIn, Email } from "./SVG";
+import { email } from "../utils";
 
 import {
   motion,
@@ -124,7 +125,7 @@ const Home = forwardRef<
                 </a>
                 <a
                   className="w-[57px] h-[46px]"
-                  href="mailto:kyle_lasala@dlsu.edu.ph"
+                  href={`mailto: ${email}`}
                   target="_blank"
                 >
                   <Email color="white" />

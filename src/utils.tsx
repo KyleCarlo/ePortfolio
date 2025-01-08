@@ -5,6 +5,8 @@ export const scrollToProgress = (progress: number) => {
   window.scrollTo({ top: scrollY, behavior: "smooth" });
 };
 
+export const email = "kyle_lasala@dlsu.edu.ph";
+
 export const projectDetails = [
   {
     title: "Deterministic Pushdown Automata (DPDA)",
