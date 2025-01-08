@@ -39,8 +39,8 @@ const Header = forwardRef<
       <a className="cursor-pointer" href="#projects">
         Projects
       </a>
-      <a className="cursor-pointer" href="#career">
-        Career
+      <a className="cursor-pointer" href="#contact">
+        Contact
       </a>
     </div>
   );

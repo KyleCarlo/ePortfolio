@@ -5,6 +5,7 @@ import Spinner from "./components/Spinner";
 import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useSpring } from "motion/react";
 import { scrollToProgress } from "./utils";
+import Contact from "./components/Contact";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -54,6 +55,7 @@ export default function App() {
           setHideSpinner={setHideSpinner}
         />
         <Projects />
+        <Contact />
       </main>
     </>
   );
