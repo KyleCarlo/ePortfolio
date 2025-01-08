@@ -55,6 +55,11 @@ const Home = forwardRef<
   });
 
   useEffect(() => {
+    console.log("headerRef", headerRef);
+    console.log("imgRef", imgRef);
+    console.log("bioRef", bioRef);
+    console.log("bio2Ref", bio2Ref);
+
     if (headerRef.current) {
       setHeaderHeight(headerRef.current.clientHeight);
     }
