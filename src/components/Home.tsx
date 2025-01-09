@@ -92,6 +92,7 @@ const Home = forwardRef<
             alt="My Picture"
             className="max-h-[85dvh] z-10"
             onLoad={() => {
+              setImageWidth(imgRef.current?.clientWidth || 0);
               setTimeout(() => {
                 setLoading(false);
               }, 2000);
