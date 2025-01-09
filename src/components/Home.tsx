@@ -70,13 +70,6 @@ const Home = forwardRef<
     }
   }, [headerRef, imgRef, bioRef, bio2Ref]);
 
-  useEffect(() => {
-    console.log("headerHeight", headerHeight);
-    console.log("imageWidth", imageWidth);
-    console.log("bioWidth", bioWidth);
-    console.log("bio2Width", bio2Width);
-  });
-
   const imgX = useTransform(scrollY, [0, 1], [0, imageWidth]);
   const bioX = useTransform(scrollY, [0, 0.75], [0, -bioWidth]);
   const bio2X = useTransform(scrollY, [0, 1], ["150%", "0%"]);
