@@ -4,7 +4,7 @@ import Projects from "./components/Projects";
 import Spinner from "./components/Spinner";
 import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useSpring } from "motion/react";
-import { scrollToProgress } from "./utils";
+import { scrollToProgress, usePreventZoom } from "./utils";
 import Contact from "./components/Contact";
 
 export default function App() {
@@ -59,32 +59,4 @@ export default function App() {
       </main>
     </>
   );
-}
-
-function usePreventZoom(scrollCheck = true, keyboardCheck = true) {
-  useEffect(() => {
-    const handleKeydown = (e: globalThis.KeyboardEvent) => {
-      if (
-        keyboardCheck &&
-        e.ctrlKey &&
-        (e.key == "=" || e.key == "+" || e.key == "-")
-      ) {
-        e.preventDefault();
-      }
-    };
-
-    const handleWheel = (e: globalThis.WheelEvent) => {
-      if (scrollCheck && e.ctrlKey) {
-        e.preventDefault();
-      }
-    };
-
-    document.addEventListener("keydown", handleKeydown);
-    document.addEventListener("wheel", handleWheel, { passive: false });
-
-    return () => {
-      document.removeEventListener("keydown", handleKeydown);
-      document.removeEventListener("wheel", handleWheel);
-    };
-  }, [scrollCheck, keyboardCheck]);
 }
