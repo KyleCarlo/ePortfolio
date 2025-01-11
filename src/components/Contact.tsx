@@ -18,7 +18,7 @@ export default function Contact() {
   const formSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const email = document.getElementById("email") as HTMLInputElement;
-    const subject = document.getElementById("e-mail") as HTMLInputElement;
+    const subject = document.getElementById("subject") as HTMLInputElement;
     const message = document.getElementById("message") as HTMLTextAreaElement;
 
     setErrors({
@@ -120,14 +120,14 @@ export default function Contact() {
           label="Email"
           type="input"
           error={errors["email"]}
-          disable={!superPosition}
+          disable={!superPosition || state.submitting}
         />
         <Input
-          id="e-mail"
+          id="subject"
           label="Subject"
           type="input"
           error={errors["subject"]}
-          disable={!superPosition}
+          disable={!superPosition || state.submitting}
         />
         <Input
           id="message"
