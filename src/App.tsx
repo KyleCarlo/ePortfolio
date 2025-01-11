@@ -70,8 +70,6 @@ function usePreventZoom(scrollCheck = true, keyboardCheck = true) {
         (e.key == "=" || e.key == "+" || e.key == "-")
       ) {
         e.preventDefault();
-        console.log(e);
-        console.log(e.ctrlKey);
       }
     };
 

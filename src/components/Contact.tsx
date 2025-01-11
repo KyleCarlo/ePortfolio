@@ -3,8 +3,14 @@ import { useState } from "react";
 import { Email, Github, LinkedIn } from "./SVG";
 import { motion } from "motion/react";
 import { email } from "../utils";
+import { useForm } from "@formspree/react";
 
 export default function Contact() {
+  const [state, handleSubmit] = useForm("xwppaqqa");
+  // const sendEmail = () => {};
+  if (state.succeeded) {
+    console.log("success");
+  }
   return (
     <div id="contact" className="flex justify-evenly mb-12 px-20 h-[90dvh]">
       <div className="flex flex-col flex-[0_0_50%] justify-center items-center space-y-4">
@@ -46,7 +52,11 @@ export default function Contact() {
           me a message. 😉
         </p>
       </div>
-      <div className="flex flex-col flex-[0_0_50%] justify-center space-y-2">
+      <form
+        onSubmit={handleSubmit}
+        method="POST"
+        className="flex flex-col flex-[0_0_50%] justify-center space-y-2"
+      >
         <Input id="email" label="Email" type="input" />
         <Input id="subject" label="Subject" type="input" />
         <Input
@@ -57,6 +67,7 @@ export default function Contact() {
         />
         <div className="flex justify-center">
           <motion.button
+            type="submit"
             className="w-3/5 bg-[--blue] text-white font-bold rounded-md p-2"
             whileHover={{
               backgroundColor: "var(--blue-highlight)",
@@ -65,7 +76,7 @@ export default function Contact() {
             Send
           </motion.button>
         </div>
-      </div>
+      </form>
     </div>
   );
 }
@@ -94,6 +105,7 @@ function Input({
           type="text"
           className="w-3/5 rounded-md bg-[--tertiary-color] border-2 border-[--secondary-color] p-2 active:border-[--blue] focus:border-[--blue] shadow-sm shadow-[--blue] focus:outline-none"
           id={id}
+          name={id}
         />
       ) : (
         <div
@@ -102,6 +114,8 @@ function Input({
           }`}
         >
           <textarea
+            id={id}
+            name={id}
             onFocus={() => setActive(true)}
             onBlur={() => setActive(false)}
             className="resize-none w-full h-full p-2 bg-transparent outline-none overflow-y-hidden"
