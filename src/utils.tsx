@@ -1,3 +1,33 @@
+import { useEffect } from "react";
+
+export function usePreventZoom(scrollCheck = true, keyboardCheck = true) {
+  useEffect(() => {
+    const handleKeydown = (e: globalThis.KeyboardEvent) => {
+      if (
+        keyboardCheck &&
+        e.ctrlKey &&
+        (e.key == "=" || e.key == "+" || e.key == "-")
+      ) {
+        e.preventDefault();
+      }
+    };
+
+    const handleWheel = (e: globalThis.WheelEvent) => {
+      if (scrollCheck && e.ctrlKey) {
+        e.preventDefault();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeydown);
+    document.addEventListener("wheel", handleWheel, { passive: false });
+
+    return () => {
+      document.removeEventListener("keydown", handleKeydown);
+      document.removeEventListener("wheel", handleWheel);
+    };
+  }, [scrollCheck, keyboardCheck]);
+}
+
 export const scrollToProgress = (progress: number) => {
   const scrollHeight =
     document.documentElement.scrollHeight - window.innerHeight;
